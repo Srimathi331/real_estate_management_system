@@ -15,6 +15,7 @@ export default defineConfig({
   preview: {
     host: '0.0.0.0',
     port: process.env.PORT || 4173,
+    allowedHosts: ['urbanhive-frontend.onrender.com', 'localhost'],
   },
   build: {
     outDir: 'dist',

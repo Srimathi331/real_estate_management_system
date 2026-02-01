@@ -1,0 +1,2048 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Nunito+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Source+Code+Pro:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Base Styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #1f2937;
+    background-color: #f9fafb;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-weight: 600;
+    color: #111827;
+  }
+}
+
+/* Global Blue to Sage Green Color Replacement */
+@layer utilities {
+  /* Replace all blue-500 with sage green */
+  .bg-blue-500 { background-color: #97A87A !important; }
+  .bg-blue-600 { background-color: #8A9B6D !important; }
+  .bg-blue-700 { background-color: #7D8E60 !important; }
+  .bg-blue-800 { background-color: #708153 !important; }
+  .bg-blue-900 { background-color: #637446 !important; }
+  
+  .text-blue-500 { color: #97A87A !important; }
+  .text-blue-600 { color: #8A9B6D !important; }
+  .text-blue-700 { color: #7D8E60 !important; }
+  .text-blue-800 { color: #708153 !important; }
+  .text-blue-900 { color: #637446 !important; }
+  
+  .border-blue-500 { border-color: #97A87A !important; }
+  .border-blue-600 { border-color: #8A9B6D !important; }
+  .border-blue-700 { border-color: #7D8E60 !important; }
+  
+  .ring-blue-500 { --tw-ring-color: #97A87A !important; }
+  .ring-blue-600 { --tw-ring-color: #8A9B6D !important; }
+  
+  .focus\:ring-blue-500:focus { --tw-ring-color: #97A87A !important; }
+  .focus\:ring-blue-600:focus { --tw-ring-color: #8A9B6D !important; }
+  
+  .focus\:border-blue-500:focus { border-color: #97A87A !important; }
+  .focus\:border-blue-600:focus { border-color: #8A9B6D !important; }
+  
+  .hover\:bg-blue-600:hover { background-color: #8A9B6D !important; }
+  .hover\:bg-blue-700:hover { background-color: #7D8E60 !important; }
+  
+  .hover\:text-blue-600:hover { color: #8A9B6D !important; }
+  .hover\:text-blue-700:hover { color: #7D8E60 !important; }
+  
+  /* Replace blue gradients */
+  .from-blue-500 { --tw-gradient-from: #97A87A !important; }
+  .from-blue-600 { --tw-gradient-from: #8A9B6D !important; }
+  .to-blue-500 { --tw-gradient-to: #97A87A !important; }
+  .to-blue-600 { --tw-gradient-to: #8A9B6D !important; }
+  
+  /* Replace blue shadows */
+  .shadow-blue-500\/20 { --tw-shadow-color: rgb(151 168 122 / 0.2) !important; }
+  .shadow-blue-500\/30 { --tw-shadow-color: rgb(151 168 122 / 0.3) !important; }
+}
+
+/* Update button primary to use sage green */
+.btn-primary {
+  background-color: #97A87A !important;
+  color: white;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background-color: #8A9B6D !important;
+}
+
+/* Update auth-new button to use sage green */
+.btn-auth-new {
+  background: linear-gradient(135deg, #97A87A, #8A9B6D) !important;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  box-shadow: 0 0 30px rgba(151, 168, 122, 0.4) !important;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(151, 168, 122, 0.3);
+}
+
+.btn-auth-new:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(151, 168, 122, 0.5) !important;
+  background: linear-gradient(135deg, #8A9B6D, #7D8E60) !important;
+}
+
+/* Update text gradients to use sage green */
+.text-gradient-auth-new {
+  background: linear-gradient(135deg, #97A87A, #8A9B6D) !important;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  text-shadow: 0 0 30px rgba(151, 168, 122, 0.5);
+}
+
+.text-gradient-admin {
+  background: linear-gradient(135deg, #374151, #B8860B) !important;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-auth {
+  background: linear-gradient(135deg, #1e1b4b, #B8860B) !important;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-dashboard {
+  background: linear-gradient(135deg, #0f766e, #B8860B) !important;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Update glow effects */
+.glow-gold {
+  box-shadow: 0 0 30px rgba(151, 168, 122, 0.4) !important;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(151, 168, 122, 0.4) !important;
+}
+
+/* Enhanced text visibility for auth pages - Sage Green with good contrast */
+.page-auth-new .text-blue-500,
+.page-auth-new .text-blue-600,
+.page-auth-new .hover\:text-blue-600:hover,
+.page-auth-new .hover\:text-blue-700:hover {
+  color: #97A87A !important; /* Sage green for better visibility */
+  font-weight: 600 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Make links more visible on auth pages - Sage Green */
+.page-auth-new a {
+  color: #97A87A !important; /* Sage green */
+  font-weight: 600 !important;
+  text-decoration: underline !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+}
+
+.page-auth-new a:hover {
+  color: #8A9B6D !important; /* Darker sage on hover */
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Improve text contrast on glass backgrounds */
+.page-auth-new .card-glass {
+  background: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Make all text on auth pages more visible */
+.page-auth-new .text-white {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+}
+
+.page-auth-new .text-gray-300,
+.page-auth-new .text-gray-400 {
+  color: rgba(255, 255, 255, 0.9) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Update pulse glow animation - Sage Green */
+@keyframes pulse-glow-sage {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(151, 168, 122, 0.5);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 40px rgba(151, 168, 122, 0.7);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow-sage 2s infinite !important;
+}
+
+/* Force all blue text to be sage green and visible */
+.text-blue-400,
+.text-blue-500,
+.text-blue-600 {
+  color: #97A87A !important; /* Sage green for visibility */
+  font-weight: 600 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Make sure links are always visible - Sage Green */
+a[class*="text-blue"] {
+  color: #97A87A !important; /* Sage green */
+  font-weight: 600 !important;
+  text-decoration: underline !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+}
+
+a[class*="text-blue"]:hover {
+  color: #8A9B6D !important; /* Darker sage on hover */
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4) !important;
+}
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+    outline: none;
+  }
+  
+  .btn:focus {
+    ring: 2px;
+    ring-offset: 2px;
+  }
+  
+  .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .btn-primary {
+    background-color: #3b82f6;
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background-color: #2563eb;
+  }
+  
+  .input-glass {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.5rem;
+    color: white;
+    transition: all 0.2s;
+  }
+  
+  .page-auth-new .input-glass {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0.5rem;
+    color: #ffffff;
+    transition: all 0.2s;
+  }
+  
+  .input-glass::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .page-auth-new .input-glass::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .input-glass:focus {
+    ring: 2px;
+    ring-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .page-auth-new .input-glass:focus {
+    ring: 2px;
+    ring-color: rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+  }
+  
+  .card-glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+  
+  .page-auth-new .card-glass {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+  
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Enhanced Page-Specific Background Styles */
+/* Home Page - Warm Cream & Elegant Design */
+.page-home {
+  background-color: #F9F8F6;
+  min-height: 100vh;
+}
+
+.page-home .hero-section {
+  background-image: url('https://images.unsplash.com/photo-1715168437311-18b9ec0830c1?w=1920&h=1080&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTE0fHxyZWFsJTIwZXN0YXRlJTIwaW1hZ2VzfGVufDB8fDB8fHww');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.page-home .hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(44, 62, 80, 0.75), rgba(176, 219, 156, 0.3));
+  z-index: 1;
+}
+
+.page-home .hero-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+.page-home .stats-section {
+  background-image: url('https://media.istockphoto.com/id/2249890999/photo/luxury-modern-dining-room-interior-with-accent-wall-and-unique-decor.webp?a=1&b=1&s=612x612&w=0&k=20&c=9ZclAWwb7LbMkQ63SQu2ytI4M4to3zWSMBlCJWGv3rw=');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.page-home .stats-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(249, 248, 246, 0.95), rgba(249, 248, 246, 0.9));
+  z-index: 1;
+}
+
+.page-home .stats-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+.page-home .types-section {
+  background-image: url('https://images.unsplash.com/photo-1631706714247-5dc6542027ef?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.page-home .types-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1631706714247-5dc6542027ef?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  filter: blur(3px);
+  z-index: 0;
+}
+
+.page-home .types-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(44, 62, 80, 0.4), rgba(0, 0, 0, 0.3));
+  z-index: 1;
+}
+
+.page-home .types-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+.page-home .featured-section {
+  background-image: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1920&h=1080&fit=crop');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.page-home .featured-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(249, 248, 246, 0.95), rgba(255, 255, 255, 0.9));
+  z-index: 1;
+}
+
+.page-home .featured-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+.page-home .features-section {
+  background-image: url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=1920&h=1080&fit=crop');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.page-home .features-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(176, 219, 156, 0.1), rgba(249, 248, 246, 0.95));
+  z-index: 1;
+}
+
+.page-home .features-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+.page-home .testimonials-section {
+  background-image: url('https://media.istockphoto.com/id/468993368/photo/house.webp?a=1&b=1&s=612x612&w=0&k=20&c=1onYbmXiB-eeClpOUsmiDdnCeSwhYNwMjqX9l2jNnro=');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.page-home .testimonials-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('https://media.istockphoto.com/id/468993368/photo/house.webp?a=1&b=1&s=612x612&w=0&k=20&c=1onYbmXiB-eeClpOUsmiDdnCeSwhYNwMjqX9l2jNnro=');
+  background-size: cover;
+  background-position: center;
+  filter: blur(1px);
+  z-index: 0;
+}
+
+.page-home .testimonials-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(249, 248, 246, 0.75), rgba(255, 255, 255, 0.65));
+  z-index: 1;
+}
+
+.page-home .testimonials-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+.page-home .cta-section {
+  background-image: url('https://images.unsplash.com/photo-1684864706908-4ed39012b5b1?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTg5fHxncmV5JTIwcmVhbCUyMGVzdGF0ZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
+  position: relative;
+}
+
+.page-home .cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1684864706908-4ed39012b5b1?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTg5fHxncmV5JTIwcmVhbCUyMGVzdGF0ZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
+  z-index: 0;
+}
+
+.page-home .cta-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(44, 62, 80, 0.2) !important;
+  z-index: 1;
+}
+
+.page-home .cta-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+.page-home .how-it-works-section {
+  background-image: url('https://images.unsplash.com/photo-1688592286809-881bbb6f66cb?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGdyZXklMjByZWFsJTIwZXN0YXRlJTIwaW1hZ2VzfGVufDB8fDB8fHww');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.page-home .how-it-works-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1688592286809-881bbb6f66cb?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGdyZXklMjByZWFsJTIwZXN0YXRlJTIwaW1hZ2VzfGVufDB8fDB8fHww');
+  background-size: cover;
+  background-position: center;
+  filter: blur(2px);
+  z-index: 0;
+}
+
+.page-home .how-it-works-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(44, 62, 80, 0.6), rgba(0, 0, 0, 0.4));
+  z-index: 1;
+}
+
+.page-home .how-it-works-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Properties Page - Real Estate Background Image */
+.page-properties {
+  background-image: url('https://plus.unsplash.com/premium_photo-1753795570634-36642a1e904e?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njl8fHJlYWwlMjBlc3RhdGUlMjBpbWFnZXN8ZW58MHx8MHx8fDA%3D');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.page-properties::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.15);
+  z-index: 1;
+}
+
+.page-properties > * {
+  position: relative;
+  z-index: 2;
+}
+
+.page-properties .hero-section {
+  background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1920&h=1080&fit=crop');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.page-properties .hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(6, 95, 70, 0.9), rgba(4, 120, 87, 0.8));
+  z-index: 1;
+}
+
+/* Property Detail - Clean Background with Image */
+.page-detail {
+  background-image: url('https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.page-detail::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+}
+
+.page-detail > * {
+  position: relative;
+  z-index: 2;
+}
+
+.page-detail .hero-section {
+  background-image: url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1920&h=1080&fit=crop');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.page-detail .hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.2);
+  z-index: 1;
+}
+
+/* Auth Pages - Midnight & Cyan */
+.page-auth {
+  background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 50%, #99f6e4 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.page-auth .auth-container {
+  background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&h=1080&fit=crop');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.page-auth .auth-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(30, 27, 75, 0.95), rgba(49, 46, 129, 0.9));
+  z-index: 1;
+}
+
+/* Agent Pages - Clean Background with Image */
+.page-agent {
+  background-image: url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.page-agent::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+}
+
+.page-agent > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Admin Pages - Clean Background with Strong Text Visibility */
+.page-admin {
+  background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.page-admin::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.6);
+  z-index: 1;
+}
+
+.page-admin > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Profile - Clean Background with Image */
+.page-profile {
+  background-image: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.page-profile::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+}
+
+.page-profile > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Wishlist - Clean Background with Image */
+.page-wishlist {
+  background-image: url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.page-wishlist::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+}
+
+.page-wishlist > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Dashboard - Teal & Turquoise */
+.page-dashboard {
+  background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.page-dashboard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(15, 118, 110, 0.85), rgba(19, 78, 74, 0.8));
+  z-index: 1;
+}
+
+.page-dashboard > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Error Pages - Sunset & Coral */
+.page-error {
+  background-image: url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.page-error::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.85), rgba(153, 27, 27, 0.8));
+  z-index: 1;
+}
+
+.page-error > * {
+  position: relative;
+  z-index: 2;
+}
+
+.btn-wishlist {
+  background: linear-gradient(135deg, #a21caf, #c026d3);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  box-shadow: 0 0 30px rgba(192, 38, 211, 0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-wishlist:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(162, 28, 175, 0.3);
+}
+
+/* Enhanced Button Variants with Unique Colors */
+.btn-home {
+  background: linear-gradient(135deg, #2C3E50, #B0DB9C);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  box-shadow: 0 0 30px rgba(176, 219, 156, 0.2);
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+
+.btn-home:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(176, 219, 156, 0.3);
+}
+
+.btn-properties {
+  background: linear-gradient(135deg, #065f46, #047857);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-properties:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(6, 95, 70, 0.3);
+}
+
+.btn-auth {
+  background: linear-gradient(135deg, #1e1b4b, #312e81);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  box-shadow: 0 0 30px rgba(6, 182, 212, 0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-auth:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(30, 27, 75, 0.3);
+}
+
+/* Text Gradients for Each Page */
+.text-gradient-home {
+  background: linear-gradient(135deg, #2C3E50, #B0DB9C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-properties {
+  background: linear-gradient(135deg, #065f46, #10b981);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-detail {
+  background: linear-gradient(135deg, #581c87, #eab308);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-auth {
+  background: linear-gradient(135deg, #1e1b4b, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-agent {
+  background: linear-gradient(135deg, #be123c, #f43f5e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-admin {
+  background: linear-gradient(135deg, #374151, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-profile {
+  background: linear-gradient(135deg, #d97706, #b45309);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-wishlist {
+  background: linear-gradient(135deg, #a21caf, #c026d3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-dashboard {
+  background: linear-gradient(135deg, #0f766e, #14b8a6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Enhanced Card Styles */
+.card-glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Pattern Overlays */
+.pattern-dots {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.pattern-grid {
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* Animated Gradient Background */
+.bg-animated-gradient {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Enhanced Shimmer Animation */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Enhanced Animations */
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotateIn {
+  0% {
+    opacity: 0;
+    transform: rotate(-200deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slideInFromLeft 0.8s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInFromRight 0.8s ease-out;
+}
+
+.animate-slide-in-bottom {
+  animation: slideInFromBottom 0.8s ease-out;
+}
+
+.animate-bounce-in {
+  animation: bounceIn 0.8s ease-out;
+}
+
+.animate-rotate-in {
+  animation: rotateIn 0.8s ease-out;
+}
+
+.animate-zoom-in {
+  animation: zoomIn 0.6s ease-out;
+}
+
+/* Hover Effects */
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+}
+
+/* Staggered Animation Delays */
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+.animate-delay-500 { animation-delay: 500ms; }
+.animate-delay-600 { animation-delay: 600ms; }
+.animate-delay-700 { animation-delay: 700ms; }
+.animate-delay-800 { animation-delay: 800ms; }
+
+/* Parallax Effect */
+.parallax-slow {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Loading Animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+/* Enhanced Page-Specific Background Styles */
+/* Home Page - Warm Cream & Elegant Design */
+.page-home {
+  background-color: #F9F8F6;
+  min-height: 100vh;
+}
+
+.page-home .hero-section {
+  background-image: url('https://images.unsplash.com/photo-1715168437311-18b9ec0830c1?w=1920&h=1080&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTE0fHxyZWFsJTIwZXN0YXRlJTIwaW1hZ2VzfGVufDB8fDB8fHww');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.page-home .hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(44, 62, 80, 0.75), rgba(176, 219, 156, 0.3));
+  z-index: 1;
+}
+
+.page-home .hero-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Properties Page - Real Estate Background Image (Updated) */
+.page-properties {
+  background-image: url('https://plus.unsplash.com/premium_photo-1753795570634-36642a1e904e?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njl8fHJlYWwlMjBlc3RhdGUlMjBpbWFnZXN8ZW58MHx8MHx8fDA%3D');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.page-properties::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.15);
+  z-index: 1;
+}
+
+.page-properties > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Auth Pages - Midnight & Cyan */
+.page-auth {
+  background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 50%, #99f6e4 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.page-auth .auth-container {
+  background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&h=1080&fit=crop');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.page-auth .auth-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(30, 27, 75, 0.95), rgba(49, 46, 129, 0.9));
+  z-index: 1;
+}
+
+/* Enhanced Button Variants with Unique Colors */
+.btn-home {
+  background: linear-gradient(135deg, #2C3E50, #B0DB9C);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  box-shadow: 0 0 30px rgba(176, 219, 156, 0.2);
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+
+.btn-home:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(176, 219, 156, 0.3);
+}
+
+.btn-properties {
+  background: linear-gradient(135deg, #065f46, #047857);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-properties:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(6, 95, 70, 0.3);
+}
+
+.btn-auth {
+  background: linear-gradient(135deg, #1e1b4b, #312e81);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  box-shadow: 0 0 30px rgba(6, 182, 212, 0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-auth:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(30, 27, 75, 0.3);
+}
+
+.btn-wishlist {
+  background: linear-gradient(135deg, #a21caf, #c026d3);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  box-shadow: 0 0 30px rgba(192, 38, 211, 0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-wishlist:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(162, 28, 175, 0.3);
+}
+
+/* Text Gradients for Each Page */
+.text-gradient-home {
+  background: linear-gradient(135deg, #2C3E50, #B0DB9C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-properties {
+  background: linear-gradient(135deg, #065f46, #10b981);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-auth {
+  background: linear-gradient(135deg, #1e1b4b, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-wishlist {
+  background: linear-gradient(135deg, #a21caf, #c026d3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Enhanced Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slideInFromLeft 0.8s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInFromRight 0.8s ease-out;
+}
+
+.animate-slide-in-bottom {
+  animation: slideInFromBottom 0.8s ease-out;
+}
+
+.animate-bounce-in {
+  animation: bounceIn 0.8s ease-out;
+}
+
+/* Animation Delays */
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+.animate-delay-500 { animation-delay: 500ms; }
+.animate-delay-600 { animation-delay: 600ms; }
+
+/* Hover Effects */
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d1d5db;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #9ca3af;
+}
+
+/* Skeleton Loading */
+.skeleton {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background-color: #e5e7eb;
+  border-radius: 0.25rem;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+/* New Auth Pages - Modern Dark Theme */
+.page-auth-new {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.page-auth-new .auth-container {
+  background-image: url('https://plus.unsplash.com/premium_photo-1676983352797-a12800a05dfb?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.page-auth-new .auth-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.4), rgba(30, 41, 59, 0.5));
+  z-index: 1;
+}
+
+.btn-auth-new {
+  background: linear-gradient(135deg, #97A87A, #8A9B6D);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  box-shadow: 0 0 30px rgba(151, 168, 122, 0.4);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(151, 168, 122, 0.3);
+}
+
+.btn-auth-new:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(151, 168, 122, 0.5);
+  background: linear-gradient(135deg, #8A9B6D, #7D8E60);
+}
+
+.text-gradient-auth-new {
+  background: linear-gradient(135deg, #97A87A, #8A9B6D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  text-shadow: 0 0 30px rgba(151, 168, 122, 0.5);
+}
+
+/* Special styling for auth-new header area */
+.page-auth-new .auth-header {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+/* Enhanced text visibility for Properties page */
+.page-properties .bg-white {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.page-properties .text-gray-900,
+.page-properties .text-gray-800,
+.page-properties .text-gray-700 {
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+}
+
+.page-properties .text-gray-600,
+.page-properties .text-gray-500 {
+  color: #374151 !important;
+  font-weight: 500 !important;
+}
+
+/* Enhanced card visibility */
+.page-properties .shadow-card,
+.page-properties .shadow-sm,
+.page-properties .shadow-md {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Better button visibility */
+.page-properties .btn-primary,
+.page-properties button {
+  font-weight: 700 !important;
+  text-shadow: none !important;
+}
+/* Auth Forms - Light Blue Color Override */
+.page-auth-new .btn-auth-new {
+  background: linear-gradient(135deg, #AAC4F5, #9BB3F0) !important;
+  color: #1f2937 !important;
+  font-weight: 700 !important;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 0 30px rgba(170, 196, 245, 0.4) !important;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(170, 196, 245, 0.3);
+}
+
+.page-auth-new .btn-auth-new:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(170, 196, 245, 0.5) !important;
+  background: linear-gradient(135deg, #9BB3F0, #8CA2EB) !important;
+}
+
+/* Auth form text colors for better visibility */
+.page-auth-new .text-gradient-auth-new {
+  color: #1f2937 !important;
+  font-weight: 800 !important;
+  text-shadow: none !important;
+  background: none !important;
+  -webkit-text-fill-color: #1f2937 !important;
+}
+
+/* Auth form links */
+.page-auth-new a {
+  color: #AAC4F5 !important;
+  font-weight: 600 !important;
+  text-decoration: underline !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+}
+
+.page-auth-new a:hover {
+  color: #9BB3F0 !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Auth form focus states */
+.page-auth-new .input-glass:focus {
+  ring: 2px;
+  ring-color: rgba(170, 196, 245, 0.4) !important;
+  border-color: rgba(170, 196, 245, 0.5) !important;
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 3px rgba(170, 196, 245, 0.1) !important;
+}
+/* Force dark text for Urban Hive brand on auth pages */
+.page-auth-new span.text-gradient-auth-new,
+.page-auth-new .text-2xl.font-bold {
+  color: #1f2937 !important;
+  font-weight: 900 !important;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5) !important;
+  background: none !important;
+  -webkit-text-fill-color: #1f2937 !important;
+  -webkit-background-clip: unset !important;
+}
+
+/* Ensure all text in auth header is visible */
+.page-auth-new .auth-header * {
+  color: #1f2937 !important;
+  font-weight: 700 !important;
+}
+/* Contact Page - Ocean Blue & Seafoam */
+.page-contact {
+  background-image: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.page-contact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.85), rgba(59, 130, 246, 0.8));
+  z-index: 1;
+}
+
+.page-contact > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Privacy Policy - Forest Green & Mint */
+.page-privacy {
+  background-image: url('https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.page-privacy::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(5, 150, 105, 0.85), rgba(16, 185, 129, 0.8));
+  z-index: 1;
+}
+
+.page-privacy > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Terms of Service - Deep Purple & Lavender */
+.page-terms {
+  background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.page-terms::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(91, 33, 182, 0.85), rgba(124, 58, 237, 0.8));
+  z-index: 1;
+}
+
+.page-terms > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Unauthorized Page - Orange & Peach */
+.page-unauthorized {
+  background-image: url('https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.page-unauthorized::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(234, 88, 12, 0.85), rgba(251, 146, 60, 0.8));
+  z-index: 1;
+}
+
+.page-unauthorized > * {
+  position: relative;
+  z-index: 2;
+}
+/* Enhanced Text Visibility for All Pages with Background Images */
+
+/* Property Detail Page Text Visibility - Enhanced for Clean Background */
+.page-detail .bg-white {
+  background: rgba(255, 255, 255, 0.98) !important;
+  backdrop-filter: blur(15px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.08) !important;
+}
+
+.page-detail .text-gray-900,
+.page-detail .text-gray-800,
+.page-detail .text-gray-700 {
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+}
+
+.page-detail .text-gray-600,
+.page-detail .text-gray-500 {
+  color: #374151 !important;
+  font-weight: 500 !important;
+}
+
+/* Agent Pages Text Visibility */
+.page-agent .bg-white {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.page-agent .text-gray-900,
+.page-agent .text-gray-800,
+.page-agent .text-gray-700 {
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+}
+
+/* Admin Pages Text Visibility - Enhanced for Clean Background */
+.page-admin .bg-white {
+  background: rgba(255, 255, 255, 0.98) !important;
+  backdrop-filter: blur(15px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Force ALL text inside admin cards to be dark and visible */
+.page-admin .bg-white *,
+.page-admin .bg-white,
+.page-admin .shadow-md *,
+.page-admin .shadow-lg *,
+.page-admin .rounded-lg *,
+.page-admin .card *,
+.page-admin table *,
+.page-admin td,
+.page-admin th {
+  color: #1f2937 !important;
+  font-weight: 500 !important;
+}
+
+.page-admin .text-gray-900,
+.page-admin .text-gray-800,
+.page-admin .text-gray-700,
+.page-admin .text-gray-600,
+.page-admin .text-gray-500,
+.page-admin .text-gray-400,
+.page-admin .text-white,
+.page-admin .text-blue-600,
+.page-admin .text-green-600,
+.page-admin .text-red-600,
+.page-admin .text-yellow-600 {
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+  text-shadow: none !important;
+}
+
+/* Enhanced visibility for admin page headings and text */
+.page-admin h1,
+.page-admin h2,
+.page-admin h3,
+.page-admin h4,
+.page-admin h5,
+.page-admin h6 {
+  color: #1f2937 !important;
+  font-weight: 700 !important;
+  text-shadow: none !important;
+}
+
+/* Special styling for admin dashboard text */
+.page-admin .text-white {
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+  text-shadow: none !important;
+}
+
+/* Admin table text visibility */
+.page-admin table,
+.page-admin tbody,
+.page-admin thead,
+.page-admin tr,
+.page-admin td,
+.page-admin th {
+  color: #1f2937 !important;
+  background: transparent !important;
+}
+
+/* Admin buttons text visibility */
+.page-admin button,
+.page-admin .btn {
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+}
+
+/* Profile Page Text Visibility */
+.page-profile .bg-white {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.page-profile .text-gray-900,
+.page-profile .text-gray-800,
+.page-profile .text-gray-700 {
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+}
+
+/* Wishlist Page Text Visibility - Enhanced for Clean Background */
+.page-wishlist .bg-white {
+  background: rgba(255, 255, 255, 0.98) !important;
+  backdrop-filter: blur(15px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.08) !important;
+}
+
+.page-wishlist .text-gray-900,
+.page-wishlist .text-gray-800,
+.page-wishlist .text-gray-700 {
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8) !important;
+}
+
+.page-wishlist .text-gray-600,
+.page-wishlist .text-gray-500 {
+  color: #374151 !important;
+  font-weight: 500 !important;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Enhanced visibility for wishlist page headings and text */
+.page-wishlist h1,
+.page-wishlist h2,
+.page-wishlist h3 {
+  color: #1f2937 !important;
+  font-weight: 700 !important;
+  text-shadow: 0 3px 6px rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Special styling for empty state text */
+.page-wishlist .text-center p,
+.page-wishlist .text-center div {
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8) !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  padding: 1rem 2rem !important;
+  border-radius: 8px !important;
+  backdrop-filter: blur(10px) !important;
+  display: inline-block !important;
+}
+
+/* Dashboard Page Text Visibility */
+.page-dashboard .bg-white {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.page-dashboard .text-gray-900,
+.page-dashboard .text-gray-800,
+.page-dashboard .text-gray-700 {
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+}
+
+/* Error Pages Text Visibility */
+.page-error .bg-white {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.page-error .text-gray-900,
+.page-error .text-gray-800,
+.page-error .text-gray-700 {
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+}
+
+/* Contact Page Text Visibility */
+.page-contact .bg-white {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.page-contact .text-gray-900,
+.page-contact .text-gray-800,
+.page-contact .text-gray-700 {
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+}
+
+/* Privacy Policy Page Text Visibility */
+.page-privacy .bg-white {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.page-privacy .text-gray-900,
+.page-privacy .text-gray-800,
+.page-privacy .text-gray-700 {
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+}
+
+/* Terms of Service Page Text Visibility */
+.page-terms .bg-white {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.page-terms .text-gray-900,
+.page-terms .text-gray-800,
+.page-terms .text-gray-700 {
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+}
+
+/* Unauthorized Page Text Visibility */
+.page-unauthorized .bg-white {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.page-unauthorized .text-gray-900,
+.page-unauthorized .text-gray-800,
+.page-unauthorized .text-gray-700 {
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+}
+
+/* Universal Text Visibility Enhancements for All Background Image Pages */
+.page-detail .shadow-card,
+.page-agent .shadow-card,
+.page-admin .shadow-card,
+.page-profile .shadow-card,
+.page-wishlist .shadow-card,
+.page-dashboard .shadow-card,
+.page-error .shadow-card,
+.page-contact .shadow-card,
+.page-privacy .shadow-card,
+.page-terms .shadow-card,
+.page-unauthorized .shadow-card,
+.page-detail .shadow-sm,
+.page-agent .shadow-sm,
+.page-admin .shadow-sm,
+.page-profile .shadow-sm,
+.page-wishlist .shadow-sm,
+.page-dashboard .shadow-sm,
+.page-error .shadow-sm,
+.page-contact .shadow-sm,
+.page-privacy .shadow-sm,
+.page-terms .shadow-sm,
+.page-unauthorized .shadow-sm {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Enhanced button visibility on all background image pages */
+.page-detail button,
+.page-agent button,
+.page-admin button,
+.page-profile button,
+.page-wishlist button,
+.page-dashboard button,
+.page-error button,
+.page-contact button,
+.page-privacy button,
+.page-terms button,
+.page-unauthorized button {
+  font-weight: 700 !important;
+  text-shadow: none !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Enhanced heading visibility */
+.page-detail h1,
+.page-detail h2,
+.page-detail h3,
+.page-agent h1,
+.page-agent h2,
+.page-agent h3,
+.page-admin h1,
+.page-admin h2,
+.page-admin h3,
+.page-profile h1,
+.page-profile h2,
+.page-profile h3,
+.page-wishlist h1,
+.page-wishlist h2,
+.page-wishlist h3,
+.page-dashboard h1,
+.page-dashboard h2,
+.page-dashboard h3,
+.page-error h1,
+.page-error h2,
+.page-error h3,
+.page-contact h1,
+.page-contact h2,
+.page-contact h3,
+.page-privacy h1,
+.page-privacy h2,
+.page-privacy h3,
+.page-terms h1,
+.page-terms h2,
+.page-terms h3,
+.page-unauthorized h1,
+.page-unauthorized h2,
+.page-unauthorized h3 {
+  color: #1f2937 !important;
+  font-weight: 700 !important;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8) !important;
+}
+/* Property Detail Page - Clean & Elegant Styling */
+.page-detail .rounded-lg {
+  border-radius: 12px !important;
+}
+
+.page-detail .bg-gray-50 {
+  background: rgba(249, 250, 251, 0.8) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+/* Property detail breadcrumb styling */
+.page-detail .breadcrumb {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(10px) !important;
+  border-radius: 8px !important;
+  padding: 0.5rem 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+/* Property detail image gallery enhancements */
+.page-detail .property-image-container {
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Property detail sidebar cards */
+.page-detail .sidebar-card {
+  background: rgba(255, 255, 255, 0.98) !important;
+  backdrop-filter: blur(15px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 12px !important;
+}
+
+/* Property detail main content area */
+.page-detail .main-content {
+  background: rgba(255, 255, 255, 0.98) !important;
+  backdrop-filter: blur(15px) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+}
+/* Admin Dashboard Header - Enhanced Visibility */
+.page-admin .dashboard-header {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  border-radius: 12px !important;
+  padding: 1.5rem !important;
+  margin-bottom: 2rem !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Force all admin page text to be dark and visible */
+.page-admin * {
+  color: #1f2937 !important;
+}
+
+.page-admin .text-white,
+.page-admin .text-gray-100,
+.page-admin .text-gray-200,
+.page-admin .text-gray-300,
+.page-admin .text-gray-400 {
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+}
+
+/* Admin page welcome text */
+.page-admin .welcome-text {
+  background: rgba(255, 255, 255, 0.95) !important;
+  padding: 1rem 2rem !important;
+  border-radius: 8px !important;
+  backdrop-filter: blur(15px) !important;
+  display: inline-block !important;
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}

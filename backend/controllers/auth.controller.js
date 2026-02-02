@@ -7,46 +7,66 @@ const { ApiError, asyncHandler } = require('../middleware/errorHandler');
  * @access  Public
  */
 const register = asyncHandler(async (req, res) => {
-  const { name, email, password, role } = req.body;
+  try {
+    console.log('Registration attempt:', { 
+      name: req.body.name, 
+      email: req.body.email, 
+      role: req.body.role 
+    });
 
-  // Check if user already exists
-  const existingUser = await User.findOne({ email });
-  if (existingUser) {
-    throw new ApiError('User with this email already exists', 400);
-  }
+    const { name, email, password, role } = req.body;
 
-  // Create user (role defaults to 'user', admin can only be created by seeder/direct DB)
-  const user = await User.create({
-    name,
-    email,
-    password,
-    role: role === 'agent' ? 'agent' : 'user', // Only allow user or agent during registration
-  });
+    // Check if user already exists
+    console.log('Checking if user exists...');
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      console.log('User already exists:', email);
+      throw new ApiError('User with this email already exists', 400);
+    }
 
-  // Generate tokens
-  const accessToken = user.generateAccessToken();
-  const refreshToken = user.generateRefreshToken();
+    // Create user (role defaults to 'user', admin can only be created by seeder/direct DB)
+    console.log('Creating new user...');
+    const user = await User.create({
+      name,
+      email,
+      password,
+      role: role === 'agent' ? 'agent' : 'user', // Only allow user or agent during registration
+    });
 
-  // Save refresh token to database
-  user.refreshToken = refreshToken;
-  await user.save({ validateBeforeSave: false });
+    console.log('User created successfully:', user._id);
 
-  // Set cookies
-  setTokenCookies(res, accessToken, refreshToken);
+    // Generate tokens
+    console.log('Generating tokens...');
+    const accessToken = user.generateAccessToken();
+    const refreshToken = user.generateRefreshToken();
 
-  res.status(201).json({
-    success: true,
-    message: 'Registration successful',
-    data: {
-      user: {
-        _id: user._id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
+    // Save refresh token to database
+    console.log('Saving refresh token...');
+    user.refreshToken = refreshToken;
+    await user.save({ validateBeforeSave: false });
+
+    // Set cookies
+    setTokenCookies(res, accessToken, refreshToken);
+
+    console.log('Registration completed successfully');
+
+    res.status(201).json({
+      success: true,
+      message: 'Registration successful',
+      data: {
+        user: {
+          _id: user._id,
+          name: user.name,
+          email: user.email,
+          role: user.role,
+        },
+        accessToken,
       },
-      accessToken,
-    },
-  });
+    });
+  } catch (error) {
+    console.error('Registration error:', error);
+    throw error;
+  }
 });
 
 /**

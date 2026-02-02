@@ -95,13 +95,18 @@ userSchema.methods.comparePassword = async function (candidatePassword) {
 
 // Generate Access Token
 userSchema.methods.generateAccessToken = function () {
+  const secret = process.env.JWT_SECRET;
+  if (!secret) {
+    throw new Error('JWT_SECRET environment variable is not set');
+  }
+  
   return jwt.sign(
     {
       id: this._id,
       email: this.email,
       role: this.role,
     },
-    process.env.JWT_SECRET,
+    secret,
     {
       expiresIn: process.env.JWT_EXPIRE || '15m',
     }
@@ -110,11 +115,16 @@ userSchema.methods.generateAccessToken = function () {
 
 // Generate Refresh Token
 userSchema.methods.generateRefreshToken = function () {
+  const secret = process.env.JWT_REFRESH_SECRET;
+  if (!secret) {
+    throw new Error('JWT_REFRESH_SECRET environment variable is not set');
+  }
+  
   return jwt.sign(
     {
       id: this._id,
     },
-    process.env.JWT_REFRESH_SECRET,
+    secret,
     {
       expiresIn: process.env.JWT_REFRESH_EXPIRE || '7d',
     }

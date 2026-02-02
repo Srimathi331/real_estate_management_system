@@ -9,6 +9,18 @@ const dotenv = require('dotenv');
 // Load environment variables
 dotenv.config();   
 
+// Validate required environment variables
+const requiredEnvVars = ['JWT_SECRET', 'JWT_REFRESH_SECRET', 'MONGODB_URI'];
+const missingEnvVars = requiredEnvVars.filter(envVar => !process.env[envVar]);
+
+if (missingEnvVars.length > 0) {
+  console.error('❌ Missing required environment variables:', missingEnvVars);
+  console.error('Please set these environment variables in your deployment platform');
+  process.exit(1);
+}
+
+console.log('✅ All required environment variables are set');   
+
 // Import database connection
 const connectDB = require('./config/db');
 

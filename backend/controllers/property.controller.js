@@ -224,8 +224,10 @@ const createProperty = asyncHandler(async (req, res) => {
     status,
   } = req.body;
 
-  // Process uploaded images
+  // Process uploaded images or external URLs
   const images = [];
+  
+  // Handle file uploads (if any)
   if (req.files && req.files.length > 0) {
     for (const file of req.files) {
       // Handle both Cloudinary and local storage
@@ -244,6 +246,19 @@ const createProperty = asyncHandler(async (req, res) => {
         });
       }
     }
+  }
+  
+  // Handle external image URLs (for production deployment)
+  if (req.body.imageUrls && req.body.imageUrls.length > 0) {
+    const urls = Array.isArray(req.body.imageUrls) ? req.body.imageUrls : [req.body.imageUrls];
+    urls.forEach((url, index) => {
+      if (url && url.trim()) {
+        images.push({
+          url: url.trim(),
+          publicId: `external-${Date.now()}-${index}`,
+        });
+      }
+    });
   }
 
   // Build location object from individual fields

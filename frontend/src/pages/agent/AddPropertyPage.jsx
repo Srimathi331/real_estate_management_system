@@ -21,6 +21,8 @@ const AddPropertyPage = () => {
   const { user } = useAuth();
   const [loading, setLoading] = useState(false);
   const [images, setImages] = useState([]);
+  const [imageUrls, setImageUrls] = useState(['']);
+  const [imageInputType, setImageInputType] = useState('url'); // 'file' or 'url'
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -128,6 +130,24 @@ const AddPropertyPage = () => {
     setImages(prev => prev.filter((_, i) => i !== index));
   };
 
+  const handleImageUrlChange = (index, value) => {
+    const newUrls = [...imageUrls];
+    newUrls[index] = value;
+    setImageUrls(newUrls);
+  };
+
+  const addImageUrlField = () => {
+    if (imageUrls.length < 10) {
+      setImageUrls([...imageUrls, '']);
+    }
+  };
+
+  const removeImageUrlField = (index) => {
+    if (imageUrls.length > 1) {
+      setImageUrls(imageUrls.filter((_, i) => i !== index));
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -202,9 +222,17 @@ const AddPropertyPage = () => {
       });
 
       // Append images
-      images.forEach((image) => {
-        submitData.append('images', image);
-      });
+      if (imageInputType === 'file') {
+        images.forEach((image) => {
+          submitData.append('images', image);
+        });
+      } else {
+        // Send image URLs
+        const validUrls = imageUrls.filter(url => url.trim());
+        validUrls.forEach((url, index) => {
+          submitData.append(`imageUrls[${index}]`, url.trim());
+        });
+      }
 
       console.log('Submitting form data:');
       for (let [key, value] of submitData.entries()) {
@@ -599,38 +627,142 @@ const AddPropertyPage = () => {
               <h2 className="text-xl font-semibold text-agent-text">Property Images</h2>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-6">
+              {/* Image Input Type Selection */}
               <div>
-                <label className="block text-sm font-medium text-agent-text mb-2">
-                  Upload Images (Max 10)
+                <label className="block text-sm font-medium text-agent-text mb-3">
+                  Choose Image Input Method
                 </label>
-                <input
-                  type="file"
-                  multiple
-                  accept="image/*"
-                  onChange={handleImageChange}
-                  className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-agent-primary focus:border-transparent"
-                />
+                <div className="flex gap-4">
+                  <label className="flex items-center">
+                    <input
+                      type="radio"
+                      name="imageInputType"
+                      value="url"
+                      checked={imageInputType === 'url'}
+                      onChange={(e) => setImageInputType(e.target.value)}
+                      className="mr-2"
+                    />
+                    Image URLs (Recommended)
+                  </label>
+                  <label className="flex items-center">
+                    <input
+                      type="radio"
+                      name="imageInputType"
+                      value="file"
+                      checked={imageInputType === 'file'}
+                      onChange={(e) => setImageInputType(e.target.value)}
+                      className="mr-2"
+                    />
+                    File Upload
+                  </label>
+                </div>
               </div>
 
-              {images.length > 0 && (
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {images.map((image, index) => (
-                    <div key={index} className="relative">
-                      <img
-                        src={URL.createObjectURL(image)}
-                        alt={`Preview ${index + 1}`}
-                        className="w-full h-24 object-cover rounded-lg"
-                      />
+              {imageInputType === 'url' ? (
+                /* Image URLs Input */
+                <div>
+                  <label className="block text-sm font-medium text-agent-text mb-2">
+                    Image URLs (Max 10)
+                  </label>
+                  <div className="space-y-3">
+                    {imageUrls.map((url, index) => (
+                      <div key={index} className="flex gap-2">
+                        <input
+                          type="url"
+                          value={url}
+                          onChange={(e) => handleImageUrlChange(index, e.target.value)}
+                          placeholder={`Image URL ${index + 1} (e.g., https://images.unsplash.com/...)`}
+                          className="flex-1 px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-agent-primary focus:border-transparent"
+                        />
+                        {imageUrls.length > 1 && (
+                          <button
+                            type="button"
+                            onClick={() => removeImageUrlField(index)}
+                            className="px-3 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600"
+                          >
+                            <FiX className="w-4 h-4" />
+                          </button>
+                        )}
+                      </div>
+                    ))}
+                    {imageUrls.length < 10 && (
                       <button
                         type="button"
-                        onClick={() => removeImage(index)}
-                        className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1 hover:bg-red-600"
+                        onClick={addImageUrlField}
+                        className="flex items-center gap-2 px-4 py-2 bg-agent-primary text-white rounded-lg hover:bg-agent-primary/90"
                       >
-                        <FiX className="w-4 h-4" />
+                        <FiPlus className="w-4 h-4" />
+                        Add Another URL
                       </button>
+                    )}
+                  </div>
+                  
+                  {/* URL Preview */}
+                  <div className="mt-4">
+                    <p className="text-sm text-gray-600 mb-2">Preview:</p>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                      {imageUrls.filter(url => url.trim()).map((url, index) => (
+                        <div key={index} className="relative">
+                          <img
+                            src={url}
+                            alt={`Preview ${index + 1}`}
+                            className="w-full h-24 object-cover rounded-lg"
+                            onError={(e) => {
+                              e.target.style.display = 'none';
+                            }}
+                          />
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
+                  
+                  {/* Sample URLs */}
+                  <div className="mt-4 p-4 bg-blue-50 rounded-lg">
+                    <p className="text-sm font-medium text-blue-800 mb-2">Sample Real Estate Image URLs:</p>
+                    <div className="space-y-1 text-xs text-blue-600">
+                      <div>https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80</div>
+                      <div>https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80</div>
+                      <div>https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80</div>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                /* File Upload */
+                <div>
+                  <div>
+                    <label className="block text-sm font-medium text-agent-text mb-2">
+                      Upload Images (Max 10)
+                    </label>
+                    <input
+                      type="file"
+                      multiple
+                      accept="image/*"
+                      onChange={handleImageChange}
+                      className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-agent-primary focus:border-transparent"
+                    />
+                  </div>
+
+                  {images.length > 0 && (
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                      {images.map((image, index) => (
+                        <div key={index} className="relative">
+                          <img
+                            src={URL.createObjectURL(image)}
+                            alt={`Preview ${index + 1}`}
+                            className="w-full h-24 object-cover rounded-lg"
+                          />
+                          <button
+                            type="button"
+                            onClick={() => removeImage(index)}
+                            className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1 hover:bg-red-600"
+                          >
+                            <FiX className="w-4 h-4" />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               )}
             </div>

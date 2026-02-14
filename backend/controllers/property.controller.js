@@ -345,6 +345,7 @@ const updateProperty = asyncHandler(async (req, res) => {
     features,
     amenities,
     removeImages,
+    images,
   } = req.body;
 
   // Build update object
@@ -358,6 +359,14 @@ const updateProperty = asyncHandler(async (req, res) => {
   if (location) updateData.location = typeof location === 'string' ? JSON.parse(location) : location;
   if (features) updateData.features = typeof features === 'string' ? JSON.parse(features) : features;
   if (amenities) updateData.amenities = typeof amenities === 'string' ? JSON.parse(amenities) : amenities;
+
+  // Handle direct images array update (for URL-based images)
+  if (images) {
+    const imagesArray = typeof images === 'string' ? JSON.parse(images) : images;
+    if (Array.isArray(imagesArray)) {
+      property.images = imagesArray;
+    }
+  }
 
   // Handle image removal
   if (removeImages) {
